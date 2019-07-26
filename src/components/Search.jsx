@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext } from 'react';
+import alertContext from '../context/alertContext';
 const Search = () => {
+	const AlertContext = useContext(alertContext);
+
 	const [ username, setUsername ] = useState('');
 	const setValue = (e) => {
 		setUsername(e.target.value);
 	};
 	const searchNow = (e) => {
 		e.preventDefault();
+
 		if (username === '') {
-			console.log('serching now');
+			AlertContext.setAlert();
+		} else {
+			AlertContext.removeAlert();
+			console.log('search now');
 		}
 	};
 
