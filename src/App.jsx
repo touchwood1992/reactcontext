@@ -10,20 +10,23 @@ import Notfound from './pages/Notfound';
 import Footer from './common/Footer';
 
 import AlertState from './context/alertState';
+import GithubContextState from './context/GithubContextState';
 const App = () => {
 	return (
-		<AlertState>
-			<Router>
-				<Header />
-				<Switch>
-					<Route exact path='/' render={() => <Home />} />
-					<Route exact path='/about' render={() => <About />} />
-					<Route exact path='/contact' render={() => <Contact />} />
-					<Route render={() => <Notfound />} />
-				</Switch>
-				<Footer />
-			</Router>
-		</AlertState>
+		<GithubContextState>
+			<AlertState>
+				<Router>
+					<Header />
+					<Switch>
+						<Route exact path='/' render={() => <Home />} />
+						<Route exact path='/about' render={() => <About />} />
+						<Route exact path='/contact' render={() => <Contact />} />
+						<Route render={() => <Notfound />} />
+					</Switch>
+					<Footer />
+				</Router>
+			</AlertState>
+		</GithubContextState>
 	);
 };
 export default App;

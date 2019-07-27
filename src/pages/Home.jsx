@@ -1,20 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Search from '../components/Search';
 import Alert from '../components/Alert';
-import alertContext from '../context/alertContext';
+import Users from '../components/Users';
+
 const Home = () => {
-	const AlertContext = useContext(alertContext);
 	return (
 		<div className='container'>
-			{AlertContext.isAlert && (
-				<div className='alert_container'>
-					<Alert />
-				</div>
-			)}
-
-			<div className='search_container'>
-				<Search />
-			</div>
+			<Alert />
+			<Search />
+			<Users />
 		</div>
 	);
 };
