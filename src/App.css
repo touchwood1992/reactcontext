@@ -94,3 +94,6 @@ a.user_detail_link:hover {
 	text-decoration: none;
 	transform: scale3d(1.05, 1.05, 1.05);
 }
+button:focus {
+	box-shadow: none;
+}

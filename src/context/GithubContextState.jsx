@@ -11,6 +11,15 @@ const GithubContextState = (props) => {
 	};
 	const [ state, dispatch ] = useReducer(GithubContextReducer, defaultState);
 
+	const getAllusers = async () => {
+		dispatch({ type: SET_LOADING });
+
+		const allusers = await fetch(`https://api.github.com/users`);
+		const users = await allusers.json();
+
+		dispatch({ type: FIND_USERS, payload: users });
+	};
+
 	const serchUsers = async (username) => {
 		dispatch({ type: SET_LOADING });
 
@@ -22,7 +31,7 @@ const GithubContextState = (props) => {
 
 	return (
 		<GithubContext.Provider
-			value={{ isLoading: state.isLoading, serchUsers, users: state.users, repos: state.repos }}
+			value={{ getAllusers, isLoading: state.isLoading, serchUsers, users: state.users, repos: state.repos }}
 		>
 			{props.children}
 		</GithubContext.Provider>

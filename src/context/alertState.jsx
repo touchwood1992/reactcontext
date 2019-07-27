@@ -9,6 +9,9 @@ const AlertState = (props) => {
 
 	const setAlert = () => {
 		dispatch({ type: SET_Alert });
+		setTimeout(() => {
+			dispatch({ type: REMOVE_Alert });
+		}, 2000);
 	};
 	const removeAlert = () => {
 		dispatch({ type: REMOVE_Alert });
