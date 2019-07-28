@@ -17,7 +17,7 @@ const App = () => {
   return (
     <GithubContextState>
       <AlertState>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Header />
           <Switch>
             <Route exact path='/' render={() => <Home />} />
